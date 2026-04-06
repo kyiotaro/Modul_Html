@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Travel Grafika</title>
+</head>
+<body>
+
+  <h2>Travel Grafika</h2>
+
+  <table border="1" cellpadding="5">
+    <tr>
+      <td>Nama</td>
+      <td><input type="text" id="nama"></td>
+    </tr>
+
+    <tr>
+      <td>Tujuan</td>
+      <td>
+        <select id="tujuan">
+          <option value="Malang">Malang</option>
+          <option value="Surabaya">Surabaya</option>
+          <option value="Trenggalek">Trenggalek</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Jumlah Tiket</td>
+      <td><input type="number" id="jumlah"></td>
+    </tr>
+
+    <tr>
+      <td>Member</td>
+      <td><input type="checkbox" id="member"> Ya</td>
+    </tr>
+
+    <tr>
+      <td>Harga Tiket</td>
+      <td><input type="text" id="harga" readonly></td>
+    </tr>
+
+    <tr>
+      <td>Sub Total</td>
+      <td><input type="text" id="subtotal" readonly></td>
+    </tr>
+
+    <tr>
+      <td>Diskon</td>
+      <td><input type="text" id="diskon" readonly></td>
+    </tr>
+
+    <tr>
+      <td>Total Bayar</td>
+      <td><input type="text" id="total" readonly></td>
+    </tr>
+  </table>
+
+  <br>
+
+  <button onclick="hitung()">Hitung</button>
+  <button onclick="resetForm()">Ulang</button>
+
+  <script>
+    function hitung() {
+      let nama = document.getElementById("nama").value;
+      let tujuan = document.getElementById("tujuan").value;
+      let jumlah = parseInt(document.getElementById("jumlah").value);
+      let member = document.getElementById("member").checked;
+
+      let harga = 0;
+
+      // Percabangan tujuan
+      if (tujuan === "Malang") {
+        harga = 100000;
+      } else if (tujuan === "Surabaya") {
+        harga = 150000;
+      } else if (tujuan === "Trenggalek") {
+        harga = 120000;
+      }
+
+      let subtotal = harga * jumlah;
+      let diskon = member ? subtotal * 0.1 : 0;
+      let total = subtotal - diskon;
+
+      document.getElementById("harga").value = harga;
+      document.getElementById("subtotal").value = subtotal;
+      document.getElementById("diskon").value = diskon;
+      document.getElementById("total").value = total;
+
+      alert(
+        "Nama: " + nama +
+        "\nTujuan: " + tujuan +
+        "\nHarga Tiket: " + harga +
+        "\nSub Total: " + subtotal +
+        "\nDiskon: " + diskon +
+        "\nTotal Bayar: " + total
+      );
+    }
+
+    function resetForm() {
+      location.reload();
+    }
+  </script>
+
+</body>
+</html>

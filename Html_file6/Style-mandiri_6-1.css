@@ -1,0 +1,21 @@
+table {
+  border-collapse: collapse;
+  margin: 20px auto;
+}
+th, td {
+  font-size: 12px;
+  text-align;
+  
+}
+#bing { background-color: #d38eff; }  
+#inka { background-color: #ffeb3b; }  
+#ipas { background-color: #ffe082; }   
+#bd   { background-color: #ff9800; }  
+#seni { background-color: #ffcc80; }   
+#mat  { background-color: #bdbdbd; }   
+#pai  { background-color: #64b5f6; }  
+#pjok { background-color: #4dd0e1; }  
+#ddk  { background-color: #e57373; }   
+#pp   { background-color: #8bc34a; }   
+#sej  { background-color: #f06292; }   
+#bin  { background-color: #81c784; }

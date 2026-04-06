@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>latihan9-3</title>
+</head>
+<body>
+  
+  <script>
+    let buah = ["Apel", "Jeruk", "Mangga", "Pisang"];
+    document.write("<h3>Daftar Buah : </h3>");
+    document.write("<ol>");
+    //menggunakan perluangan untuk mencetak semua isi Array
+    //buah.forEach(data) => {
+    //menggunakan backstick -> `
+    //${} untuk menyisipkan variabel
+    //document.write(`<li>${data}</li>`);
+    //});
+    buah.forEach(function (item, index){
+      document.write(index + 1 + ". " + item + "<br>");
+    });
+    document.write("</ol>");
+  </script>
+</body>
+</html>

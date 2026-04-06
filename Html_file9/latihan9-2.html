@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>latihan9-2</title>
+</head>
+<body>
+  <script>
+    let buah = ["Apel", "Jeruk", "Mangga", "Pisang"];
+    document.write("<h3>Daftar Buah : </h3>");
+    document.write("<ol>");
+    //menggunakan perluangan untuk mencetak semua isi Array
+    for(let i = 0; i < buah.length; i++){
+      //cara lama
+      //document.write("<li>" + buah[i] + "</li><br");
+      //cara modern (disarankan)
+      document.write(`<li>${buah[i]}</li>`);
+    }
+    document.write("</ol>");
+  </script>
+</body>
+</html>
+</html>

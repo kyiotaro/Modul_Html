@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>latihan mandiri 9</title>
+</head>
+<body>
+  <table border="1">
+    <tr>
+      <th>no</th>
+      <th>nis</th>
+      <th>nama siswa</th>
+      <th>kelas</th>
+    </tr>
+    <script>
+      let data = [
+      {nis: "1001", nama: "Andi", kelas: "X RPL A"},
+      {nis: "1002", nama: "Budi", kelas: "X RPL B"},
+      {nis: "1003", nama: "Citra", kelas: "X RPL C"},
+      {nis: "1004", nama: "Dewi", kelas: "X RPL A"},      
+    ];
+    
+    data.forEach((item,index) => {
+      document.write(`<tr>`);
+      document.write("<td>" + (index + 1) +"</td>");
+      document.write("<td>" + item.nis + "</td>");
+      document.write("<td>" + item.nama + "</td>");
+      document.write("<td>" + item.kelas + "</td>");
+      document.write(`</tr>`);
+
+    });
+    </script>
+  </table>
+</body>
+</html>

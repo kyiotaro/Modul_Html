@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="eng">
+  <head>
+    <title>Percabangan if-else 3</title>
+  </head>
+  <body>
+    <script>
+      
+      function hitungip(){
+        
+        let quis = parseFloat(document.fform.iquis.value);
+        let tugas = parseFloat(document.fform.itugas.value);
+        let uts = parseFloat(document.fform.iuts.value);
+        let uas = parseFloat(document.fform.iuas.value);
+        
+        let ip = " ";
+        let ket = " ";
+        let na = (0.10*quis)+(0.20*tugas)+(0.30*uts)+(0.40*uas);
+        
+        if((na > 80)&&(na <= 100)){
+          ip = "A"
+          ket = "Lulus dengan sangat baik";
+        }else if((na > 68)&&(na <= 80)){
+          ip = "B"
+          ket = "Lulus dengan baik";
+        }else if((na > 55)&&(na <= 68)){
+          ip = "C"
+          ket = "Lulus dengan cukup";
+        }else if((na > 38)&&(na <= 55)){
+          ip = "D"
+          ket = "Lulus dengan kurang";
+        }else{
+          ip = "F"
+          ket = "Tidak Lulus";
+        }
+        
+        document.fform.oip.value=ip;
+        document.fform.oket.value=ket;
+      }
+
+    </script>
+    <FORM NAME="fform">
+      <table border="1" width="100%" ALIGN="center">
+      <tr>
+        <td width="100%" colspan="4"><H2 ALIGN="center">"Menghitung Indeks Prestasi"</H2></td>
+      </tr>
+        
+      <tr>
+        <td width="25%">"Quis (10%) : "<input type="text" size="10" name="iquis"> </td>
+        <td width="25%">"Tugas (20%): "<input type="text" size="10" name="itugas"> </td>
+        <td width="25%">"UTS (30%): "<input type="text" size="10" name="iuts"> </td>
+        <td width="25%">"UAS (40%) : "<input type="text" size="10" name="iuas"> </td>
+      </tr>
+        
+      <tr>
+        <td width="100%" colspan="4"><p Align="center">
+        <INPUT TYPE="button" value="Hitung" onclick="hitungip()">
+        <INPUT TYPE="reset" value="Ulang"> </p></td>
+      </tr>
+        
+      <tr>
+        <td width="100%" colspan="4" align="center">
+        Indeks Prestasi : <input type="text" size="5" name="oip">
+        Keterangan: <input type="text" size="25" name="oket"></td>
+      </tr>
+        
+      </table>
+    </FORM>
+  </body>
+</html>

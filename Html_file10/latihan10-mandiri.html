@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Pendaftaran Perpustakaan</title>
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f6ff;
+    }
+    .container {
+      width: 400px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    h2 {
+      text-align: center;
+    }
+    p {
+      font-weight: bold;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+    button {
+      background: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    .radio-group {
+      margin-bottom: 15px;
+    }
+    .hasil {
+      background: #eef3ff;
+      padding: 10px;
+      margin-top: 20px;
+    }
+  </style>
+  
+</head>
+<body>
+
+<div class="container">
+  <h2>Form Pendaftaran Perpustakaan</h2>
+
+  <p>Nama Lengkap</p>
+  <input type="text" id="nama">
+
+  <p>NIS / NISN</p>
+  <input type="text" id="nis">
+
+  <p>Jurusan</p>
+  <select id="jurusan">
+    <option value="">-- Pilih Jurusan --</option>
+    <option>RPL</option>
+    <option>TKJ</option>
+    <option>MEKA</option>
+    <option>TG</option>
+    <option>PH</option>
+    <option>DKV</option>
+    <option>TL</option>
+    <option>Animasi</option>
+  </select>
+
+  <p>Kelas</p>
+  <select id="kelas">
+    <option value="">-- Pilih Kelas --</option>
+    <option>X</option>
+    <option>XI</option>
+    <option>XII</option>
+  </select>
+
+  <p>Jenis Kelamin</p>
+  <div class="radio-group">
+    <input type="radio" name="jk" value="Laki-laki"> Laki-laki<br>
+    <input type="radio" name="jk" value="Perempuan"> Perempuan
+  </div>
+
+  <p>Tempat Lahir</p>
+  <input type="text" id="tempat">
+
+  <p>Tanggal Lahir</p>
+  <input type="date" id="tgl">
+
+  <p>Alamat</p>
+  <textarea id="alamat"></textarea>
+
+  <p>No. HP</p>
+  <input type="text" id="hp">
+
+  <p>Email</p>
+  <input type="email" id="email">
+
+  <button onclick="daftar()">Daftar</button>
+  <button onclick="kosongkan()">Kosongkan</button>
+
+  <div class="hasil" id="hasil"></div>
+</div>
+
+<script>
+  function daftar() {
+    let nama = document.getElementById("nama").value;
+    let nis = document.getElementById("nis").value;
+    let jurusan = document.getElementById("jurusan").value;
+    let kelas = document.getElementById("kelas").value;
+    let tempat = document.getElementById("tempat").value;
+    let tgl = document.getElementById("tgl").value;
+    let alamat = document.getElementById("alamat").value;
+    let hp = document.getElementById("hp").value;
+    let email = document.getElementById("email").value;
+
+    let jk = "";
+    let radio = document.getElementsByName("jk");
+    for (let i = 0; i < radio.length; i++) {
+      if (radio[i].checked) {
+        jk = radio[i].value;
+      }
+    }
+
+    document.getElementById("hasil").innerHTML =
+      "<b>Data Pendaftaran:</b><br>" +
+      "Nama: " + nama + "<br>" +
+      "NIS/NISN: " + nis + "<br>" +
+      "Jurusan: " + jurusan + "<br>" +
+      "Kelas: " + kelas + "<br>" +
+      "Jenis Kelamin: " + jk + "<br>" +
+      "Tempat Lahir: " + tempat + "<br>" +
+      "Tanggal Lahir: " + tgl + "<br>" +
+      "Alamat: " + alamat + "<br>" +
+      "No HP: " + hp + "<br>" +
+      "Email: " + email;
+  }
+
+  function kosongkan() {
+    document.getElementById("hasil").innerHTML = "";
+    let input = document.querySelectorAll("input, textarea, select");
+    for (let i = 0; i < input.length; i++) {
+      input[i].value = "";
+    }
+  }
+</script>
+
+</body>
+</html>
