@@ -11,7 +11,28 @@ if (isset($_POST['kirim_login'])) {
         $page = "login";
     }
 } elseif (isset($_POST['kirim_reg'])) {
-    $page = "hasil";
+    include "../koneksi.php";
+    $nis = $_POST['nis'];
+    $nama = $_POST['nama'];
+    $kelas = $_POST['kelas'];
+    
+    $ttl = $_POST['thn'] . "-" . $_POST['bln'] . "-" . $_POST['tgl'];
+    $alamat = $_POST['alamat'];
+    $kota = $_POST['kota'];
+    $jk = $_POST['jk'];
+    $hobi = isset($_POST['hobby']) ? implode(", ", $_POST['hobby']) : "";
+    $ekskul = isset($_POST['ekskul']) ? implode(", ", $_POST['ekskul']) : "";
+
+    $query = "INSERT INTO tb_siswa (nis, nama, kelas, ttl, alamat, kota, jk, hobi, ekskul) 
+              VALUES ('$nis', '$nama', '$kelas', '$ttl', '$alamat', '$kota', '$jk', '$hobi', '$ekskul')";
+    $hasil = mysqli_query($koneksi, $query);
+
+    if ($hasil) {
+        $page = "hasil";
+    } else {
+        echo "<script>alert('Gagal menyimpan data: " . mysqli_error($koneksi) . "');</script>";
+        $page = "form";
+    }
 }
 ?>
 <html>
@@ -21,7 +42,7 @@ if (isset($_POST['kirim_login'])) {
 <body>
 
 <?php if ($page == "login"): ?>
-    <!-- HALAMAN LOGIN -->
+    
     <font face="Arial">Halaman Login</font>
     <form action="" method="post">
         <table border="0" cellpadding="2">
@@ -44,7 +65,7 @@ if (isset($_POST['kirim_login'])) {
     </form>
 
 <?php elseif ($page == "form"): ?>
-    <!-- HALAMAN FORM PENDAFTARAN -->
+    
     <table border="1" align="center" cellpadding="20" cellspacing="0">
         <tr>
             <td>
@@ -104,8 +125,8 @@ if (isset($_POST['kirim_login'])) {
                             <td>Jenis Kelamin</td>
                             <td>:</td>
                             <td>
-                                <input type="radio" name="jk" value="Laki-Laki"> Laki-Laki
-                                <input type="radio" name="jk" value="Perempuan"> Perempuan
+                                <input type="radio" name="jk" value="L"> Laki-Laki
+                                <input type="radio" name="jk" value="P"> Perempuan
                             </td>
                         </tr>
                         <tr>
@@ -148,7 +169,7 @@ if (isset($_POST['kirim_login'])) {
     </table>
 
 <?php elseif ($page == "hasil"): ?>
-    <!-- HALAMAN HASIL -->
+    
     <center>
         <font size="5"><b>Hasil Pendaftaran Ekstrakurikuler</b></font>
         <br><br>
